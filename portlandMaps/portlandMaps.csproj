@@ -178,6 +178,11 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\App\map.js" />
+    <Content Include="Content\ol.css" />
+    <Content Include="Scripts\ol3\ol-debug.js" />
+    <Content Include="Scripts\ol3\ol-deps.js" />
+    <Content Include="Scripts\ol3\ol.js" />
     <Content Include="systemjs.config.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

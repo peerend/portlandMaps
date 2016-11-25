@@ -23,9 +23,14 @@ namespace portlandMaps
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/map").Include(
+                "~/Scripts/App/map.js",
+                "~/Scripts/ol3/ol.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/ol.css"));
         }
     }
 }
