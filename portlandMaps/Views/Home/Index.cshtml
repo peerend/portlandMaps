@@ -1,0 +1,14 @@
+﻿@section title{
+    Portland Maps
+}
+@section scripts{
+    @Html.Partial("DefineAngular")
+    <script>
+        System.import('app/boottodolist');
+    </script>
+}
+<todolist class="todolistcontent" ng-hide="t">
+    <div class="waitloading">
+        loading...
+    </div>
+</todolist>
