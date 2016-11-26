@@ -18,25 +18,24 @@
     $('#map').data('map', map);
 
     //get the users current location and center the map there
-    var getLocation = function() {
-        var geoOptions = {
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 0
-        };
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
 
-        function success(pos) {
-            var crd = pos.coords;
-            var map = $('#map').data('map');
-            map.setCenter(crd);
-        }
+    function success(pos) {
+        var crd = pos.coords;
+        var map = $('#map').data('map');
+        map.getView().setCenter(ol.proj.transform([crd.longitude, crd.latitude], 'EPSG:4326', 'EPSG:3857'));
+        map.getView().setZoom(14);
+        console.log('More or less ' + crd.accuracy + ' meters.');
+    };
 
-        function error(err) {
-            console.warn('ERROR(' + err.code + '): ' + err.message);
-        }
+    function error(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+    };
 
-        navigator.geolocation.getCurrentPosition(success, error, geoOptions);
-    }
+    navigator.geolocation.getCurrentPosition(success, error, options);
 
-    getLocation();
 });
