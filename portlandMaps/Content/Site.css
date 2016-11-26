@@ -50,13 +50,7 @@ footer {
     justify-content: center;
 }
 
-.todolistcontent {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.map{
+    height: auto;
+    width: 100%;
 }
-
-    .todolistcontent form {
-        display: flex;
-        flex: 1;
-    }
