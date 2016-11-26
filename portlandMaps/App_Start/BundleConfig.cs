@@ -25,12 +25,14 @@ namespace portlandMaps
 
             bundles.Add(new ScriptBundle("~/bundles/map").Include(
                 "~/Scripts/App/map.js",
-                "~/Scripts/ol3/ol.js"));
+                "~/Scripts/ol3/ol.js",
+                "~/Scripts/ol3/ol3-layerswitcher.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/ol.css"));
+                      "~/Content/ol.css",
+                      "~/Content/ol3-layerswitcher.css"));
         }
     }
 }

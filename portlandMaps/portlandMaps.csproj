@@ -168,6 +168,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ol3-layerswitcher.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -183,6 +184,7 @@
     <Content Include="Scripts\ol3\ol-debug.js" />
     <Content Include="Scripts\ol3\ol-deps.js" />
     <Content Include="Scripts\ol3\ol.js" />
+    <Content Include="Scripts\ol3\ol3-layerswitcher.js" />
     <Content Include="systemjs.config.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
