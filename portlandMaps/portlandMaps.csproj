@@ -159,8 +159,8 @@
     <Compile Include="Models\List.cs" />
     <Compile Include="Models\DAL\Repository.cs" />
     <Compile Include="Models\Task.cs" />
-    <Compile Include="Models\DAL\TodoListContext.cs" />
-    <Compile Include="Models\DAL\TodoListInitializer.cs" />
+    <Compile Include="Models\DAL\PortlandMapsContext.cs" />
+    <Compile Include="Models\DAL\PortlandMapsInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Validation\IValidationDictionnary.cs" />
     <Compile Include="Models\Validation\ModelStateWrapper.cs" />
@@ -173,8 +173,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="app\components\todolist\todolist.component.css" />
-    <Content Include="app\components\todolist\todolist.component.html" />
     <None Include="readme.md" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
@@ -225,6 +223,9 @@
     <Content Include="Views\Shared\DefineAngular.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\" />
+    <Folder Include="app\services\" />
+    <Folder Include="app\utils\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -239,10 +240,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\boottodolist.ts" />
-    <TypeScriptCompile Include="app\components\todolist\todolist.component.ts" />
-    <TypeScriptCompile Include="app\services\app.service.todolist.ts" />
-    <TypeScriptCompile Include="app\utils\HttpHelpers.ts" />
     <TypeScriptCompile Include="Scripts\Enums.ts">
       <DependentUpon>TypeLite.Net4.tt</DependentUpon>
     </TypeScriptCompile>

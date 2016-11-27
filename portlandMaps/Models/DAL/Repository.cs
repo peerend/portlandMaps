@@ -8,12 +8,12 @@
 
     public class Repository
     {
-        private TodoListContext dbContext;
+        private PortlandMaps dbContext;
         private IValidationDictionary validation;
 
         public Repository(IValidationDictionary validation)
         {
-            this.dbContext = new TodoListContext();
+            this.dbContext = new PortlandMaps();
             this.validation = validation;
         }
 

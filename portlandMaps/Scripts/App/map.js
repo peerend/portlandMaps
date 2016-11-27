@@ -7,7 +7,6 @@
     })
 
     //initialize the map
-
     var attribution = new ol.Attribution({
         html: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
             'rest/services/World_Topo_Map/MapServer">ArcGIS</a>'
@@ -18,6 +17,9 @@
         layers: []
     });
 
+    var esrijsonFormat = new ol.format.EsriJSON();
+
+    //eventually make the layers configged values
     var map = new ol.Map({
         target: 'map',
         layers: [
@@ -47,10 +49,26 @@
     //add layer (eventually want this to be database driven
     //need to figure out a good way to store params
     var params = { 'LAYERS': 'ne:ne_10m_admin_1_states_provinces_lines_shp' };
-    addLayer('Counties', 'http://demo.opengeo.org/geoserver/wms', params, 'geoserver')
+    //addWMSLayer('Counties', 'http://demo.opengeo.org/geoserver/wms', params, 'geoserver');
+    //addESRIFeatureLayer('https://www.portlandmaps.com/arcgis/rest/services/Public/TaxParcel_Dimensions/MapServer', 'ESRI TITLE HERE');
+    addXYZLayer('1996', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_1996/MapServer');
+    addXYZLayer('1998', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_1998/MapServer');
+    addXYZLayer('2000', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2000/MapServer');
+    addXYZLayer('2003', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2003/MapServer');
+    addXYZLayer('2005', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2005/MapServer');
+    addXYZLayer('2006', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2006/MapServer');
+    addXYZLayer('2007', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2007/MapServer');
+    addXYZLayer('2008', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2008/MapServer');
+    addXYZLayer('2009', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2009/MapServer');
+    addXYZLayer('2010', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2010/MapServer');
+    addXYZLayer('2011', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2011/MapServer');
+    addXYZLayer('2012', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2012/MapServer');
+    addXYZLayer('2013', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2013/MapServer');
+    addXYZLayer('2014', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2014/MapServer');
+    addXYZLayer('2015', attribution, 'https://www.portlandmaps.com/arcgis/rest/services/Public/Aerial_Photos_Summer_2015/MapServer');
 
     //add a layer to the group
-    function addLayer(title, url, params, serverType){
+    function addWMSLayer(title, url, params, serverType){
         overlayGroup.getLayers().push(new ol.layer.Tile({
             title: title,
             source: new ol.source.TileWMS({
@@ -61,7 +79,29 @@
         }));
     }
 
-    //lets me grab the map object through jquery
+    function addXYZLayer(title, attribution, url) {
+        overlayGroup.getLayers().push(new ol.layer.Tile({
+            title: title,
+            visible: false,
+            source: new ol.source.XYZ({
+                attributions: [attribution],
+                url: url + '/tile/{z}/{y}/{x}'
+            })
+        }));
+    }
+
+    function addESRIFeatureLayer(url, title) {
+        overlayGroup.getLayers().push(new ol.layer.Image({
+            title: title,
+            source: new ol.source.ImageArcGISRest({
+                ratio: 1,
+                params: {},
+                url: url
+            })
+        }))
+    }
+
+    //add map data attribute 
     $('#map').data('map', map);
 
     //get the users current location and center the map there
@@ -124,15 +164,5 @@
     navigator.geolocation.getCurrentPosition(success, error, options);
     //end map center
 
-    //manipulate url to correctly utilize esri service
-    function parseUrl(mapServerLoc, extent) {
-        var url = "";
-        return url;
-    }
 });
 
-//           new ol.layer.Tile({
-//               source: new ol.source.TileArcGISRest({
-//                   url: parseUrl('https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation/MapServer', "")
-//               })
-//           })
